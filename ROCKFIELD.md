@@ -8,6 +8,17 @@ Internal fork of [NightSquawk/tacticalrmm-mcp-server](https://github.com/NightSq
 - **Patched dependencies.** `package-lock.json` has the non-breaking `npm audit fix` applied (MCP SDK, axios/follow-redirects and others). Remaining: zod (high), which is only reachable by oversized input from the local MCP client over stdio. Accepted.
 - **Reproducible installs.** Releases ship with the dependencies bundled inside (`bundleDependencies`), so every install runs the same reviewed code.
 
+## Team install (Windows, Claude Code)
+
+1. Ask Colm for your personal API key on `claude-readonly`.
+2. In PowerShell 7, run:
+   ```powershell
+   irm https://raw.githubusercontent.com/RockfieldIT/tacticalrmm-mcp-server/v0.1.0-rf.1/scripts/install-rockfield.ps1 -OutFile $env:TEMP\trmm-mcp.ps1; pwsh -File $env:TEMP\trmm-mcp.ps1
+   ```
+3. Fully quit and reopen the Claude app.
+
+Claude Desktop (Chat) users can instead double-click the `.mcpb` from the release and paste their key when asked.
+
 ## Updating from upstream
 
 1. Diff upstream against the last reviewed commit and review every change.
